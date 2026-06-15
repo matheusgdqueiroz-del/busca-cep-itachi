@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Busca CEP em uma interface cinematográfica inspirada no Itachi.">
+    <title>Tsukuyomi CEP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bg-track" src="assets/audio/konnichiwa-alex-productions.mp3" autoplay loop preload="auto"></audio>
+
+    <div class="scene" aria-hidden="true">
+        <div class="wallpaper-layer"></div>
+        <img src="assets/img/itachi-sharingan.png" alt="" class="sharingan-mark">
+        <div class="ink-wash"></div>
+        <div id="rain-field" class="rain-field"></div>
+        <div id="crow-field" class="crow-field"></div>
+        <div id="slash-field" class="slash-field"></div>
+        <div class="grain"></div>
+        <div class="vignette"></div>
+    </div>
+
+    <button type="button" id="sound-toggle" class="sound-toggle active" aria-label="Desativar trilha sonora" title="Desativar trilha sonora">
+        <i class="fa-solid fa-volume-high"></i>
+    </button>
+
+    <main class="main-container">
+        <section class="address-console" aria-label="Formulário de busca de CEP">
+            <header class="console-header">
+                <div>
+                    <span class="console-kicker">Akatsuki Route Intel</span>
+                    <h1>Tsukuyomi CEP</h1>
+                </div>
+                <span class="status-chip" id="status-chip">ViaCEP online</span>
+            </header>
+
+            <form id="cep-form" class="address-form" novalidate>
+                <div class="form-row">
+                    <div class="input-group" id="group-cep">
+                        <label for="cep">CEP</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" required autocomplete="off" inputmode="numeric">
+                            <span class="validation-badge"><i class="fa-solid fa-circle-check"></i></span>
+                        </div>
+                        <span class="error-msg" id="error-cep">CEP inválido.</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="estado">Estado</label>
+                        <input type="text" id="estado" name="estado" placeholder="UF" required autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Cidade" required autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro" name="bairro" placeholder="Bairro" required autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group flex-3">
+                        <label for="logradouro">Logradouro</label>
+                        <input type="text" id="logradouro" name="logradouro" placeholder="Rua, avenida, travessa" required autocomplete="off">
+                    </div>
+                    <div class="input-group flex-1">
+                        <label for="numero">Número</label>
+                        <input type="text" id="numero" name="numero" placeholder="N" required autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" id="complemento" name="complemento" placeholder="Apto, bloco, referência" autocomplete="off">
+                </div>
+
+                <div class="btn-container">
+                    <button type="submit" id="btn-buscar" class="btn-buscar">
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                        <span class="btn-text">Buscar CEP</span>
+                        <span class="btn-loader"><i class="fa-solid fa-circle-notch fa-spin"></i></span>
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="asset-credit">
+        <span>Wallpaper: 4K Wallpapers</span>
+        <span>Audio: "Konnichiwa" by Alex-Productions, CC BY 3.0</span>
+        <span>Sharingan: PNGMart</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
